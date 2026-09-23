@@ -14,6 +14,13 @@ every tick.
 It is built to be screen-recorded: big readable type, a `PARSED` / `FAILED` badge per panel, verbatim
 parser errors, a shareable one-line diff, and a 1080×1080 PNG share card.
 
+
+https://github.com/user-attachments/assets/f4f07cd1-c755-4391-9dad-173bf4918bc4
+
+<img width="1577" height="981" alt="Screenshot at Sep 23 23-51-27" src="https://github.com/user-attachments/assets/64c92f2b-637f-43a8-8053-a038962bf631" />
+<img width="1615" height="3608" alt="screencapture-localhost-5173-2026-09-23-23_51_04" src="https://github.com/user-attachments/assets/da14eb2b-41b7-4f29-9031-2b4181da8971" />
+<img width="1588" height="983" alt="Screenshot at Sep 23 23-51-15" src="https://github.com/user-attachments/assets/c4e5d8ba-6e01-44b0-b1a8-9739fa34bc27" />
+
 ---
 
 ## Table of contents
