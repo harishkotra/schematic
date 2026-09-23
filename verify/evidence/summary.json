@@ -1,0 +1,169 @@
+{
+  "ranAt": "2026-09-23T18:16:44.552Z",
+  "api": "http://127.0.0.1:3001",
+  "passed": 32,
+  "total": 32,
+  "failures": 0,
+  "checks": [
+    {
+      "name": "API is up",
+      "ok": true,
+      "detail": "promptReuse={\"promptsSeen\":0,\"reuses\":0}"
+    },
+    {
+      "name": "LM Studio models read live from /v1/models with no key",
+      "ok": true,
+      "detail": "9 models: google/gemma-4-12b, google/gemma-4-e4b, meta/muse-glimmer, openai/gpt-oss-20b…"
+    },
+    {
+      "name": "both diagrams parse and render (took 1 attempt)",
+      "ok": true,
+      "detail": "#1: A ok / B ok"
+    },
+    {
+      "name": "slot A (google/gemma-4-12b) produced a parsed, rendered diagram",
+      "ok": true,
+      "detail": "12 nodes / 12 edges from the parsed diagram · 1259 bytes · 76814 ms · via mermaid-fence"
+    },
+    {
+      "name": "slot B (ornith-1.0-35b) produced a parsed, rendered diagram",
+      "ok": true,
+      "detail": "8 nodes / 18 edges from the parsed diagram · 1331 bytes · 55702 ms · via mermaid-fence"
+    },
+    {
+      "name": "both slots received the identical prompt",
+      "ok": true,
+      "detail": "sha256 4752923c66ae27af… · nonce 36ccd5e2775c"
+    },
+    {
+      "name": "a slot with no diagram reports no source hash rather than the empty-string hash",
+      "ok": true,
+      "detail": "A: b04477634e73dd00… · B: ab3d755abd8605e0…"
+    },
+    {
+      "name": "node/edge counts come from the parsed diagram",
+      "ok": true,
+      "detail": "A: 12/12 (parsed), B: 8/18 (parsed)"
+    },
+    {
+      "name": "reasoning tokens read from usage, or n/a — never a fabricated 0",
+      "ok": true,
+      "detail": "A: 891 · B: 784"
+    },
+    {
+      "name": "no chain-of-thought text anywhere in the response",
+      "ok": true,
+      "detail": "searched the full serialised response for the key \"reasoning_content\""
+    },
+    {
+      "name": "slot A: all 5 ticks cite a real label on a real source line",
+      "ok": true,
+      "detail": "Cache = \"Cache Layer - Redis/Memcached\" (node, source line 13)\nQueue = \"Message Queue - Kafka/RabbitMQ\" (node, source line 19)\nLoad balancer = \"Load Balancer\" (node, source line 3)\nObservability / metrics = \"7. Store Metrics\" (edge, source line 21)\nDatabase = \"Primary Database - NoSQL/SQL\" (node, source line 11)"
+    },
+    {
+      "name": "slot A: missing concepts reported honestly",
+      "ok": true,
+      "detail": "not mentioned: Auth, Retry, Idempotency, Rate limit, Circuit breaker, Dead-letter, CDN"
+    },
+    {
+      "name": "slot B: all 5 ticks cite a real label on a real source line",
+      "ok": true,
+      "detail": "Cache = \"CDN / Edge Cache\" (node, source line 6)\nLoad balancer = \"Load Balancer\" (node, source line 9)\nObservability / metrics = \"16. Aggregate & Store Metrics\" (edge, source line 44)\nDatabase = \"Primary Database<br>Sharded Key-Value Store\" (node, source line 15)\nCDN = \"CDN / Edge Cache\" (node, source line 6)"
+    },
+    {
+      "name": "slot B: missing concepts reported honestly",
+      "ok": true,
+      "detail": "not mentioned: Queue, Auth, Retry, Idempotency, Rate limit, Circuit breaker, Dead-letter"
+    },
+    {
+      "name": "a diff headline was produced",
+      "ok": true,
+      "detail": "B added a CDN; A added a queue."
+    },
+    {
+      "name": "label diff computed",
+      "ok": true,
+      "detail": "only in A: 11 · only in B: 7\nB-only: Analytics DB<br>Time-Series Store | CDN / Edge Cache | Cache Layer<br>Redis Cluster | Click Logger / Stream Processor | Primary Database<br>Sharded Key-Value Store | Shortener API Service | User Browser / Mobile App"
+    },
+    {
+      "name": "second run used a fresh nonce and a different prompt hash",
+      "ok": true,
+      "detail": "nonce 36ccd5e2775c -> 9bae9d1ddc49"
+    },
+    {
+      "name": "the prompt differs only by the nonce, so the comparison stays fair",
+      "ok": true,
+      "detail": "prompts identical after removing the nonce line"
+    },
+    {
+      "name": "zero prompt reuse reported by the server",
+      "ok": true,
+      "detail": "promptReused=false on both slots"
+    },
+    {
+      "name": "broken Mermaid is rejected with parseOk=false",
+      "ok": true,
+      "detail": "diagramType=null"
+    },
+    {
+      "name": "the parser error is captured verbatim, naming the line",
+      "ok": true,
+      "detail": "line 4\n--- verbatim ---\nParse error on line 4:\n...PI Server]  API -->> Cache[(Redis Cache\n----------------------^\nExpecting 'AMP', 'COLON', 'PIPE', 'TESTSTR', 'DOWN', 'DEFAULT', 'NUM', 'COMMA', 'NODE_STRING', 'BRKT', 'MINUS', 'MULT', 'UNICODE_TEXT', got 'TAGEND'\n--- offending line ---\n  API -->> Cache[(Redis Cache)]"
+    },
+    {
+      "name": "the offending line matches the source",
+      "ok": true,
+      "detail": "\"  API -->> Cache[(Redis Cache)]\""
+    },
+    {
+      "name": "no counts are invented for a diagram that failed to parse",
+      "ok": true,
+      "detail": "counts.source=unavailable note=diagram did not parse"
+    },
+    {
+      "name": "dead Ollama reports \"Cannot reach http://127.0.0.1:11434 — is Ollama running?\"",
+      "ok": true,
+      "detail": "Cannot reach http://127.0.0.1:11434 — is Ollama running?\nfetch failed"
+    },
+    {
+      "name": "the provider's real error text follows the friendly line",
+      "ok": true,
+      "detail": "fetch failed"
+    },
+    {
+      "name": "the healthy slot was unaffected by the dead one",
+      "ok": true,
+      "detail": "slot B (ornith-1.0-35b) reached its provider: HTTP 200 (2417 chars) → parse"
+    },
+    {
+      "name": "empty content is retried once with a doubled budget",
+      "ok": true,
+      "detail": "attempts: #1 max_tokens=1600 -> empty-content (1599 reasoning tok) | #2 max_tokens=3200 -> empty-content (3199 reasoning tok)"
+    },
+    {
+      "name": "a persistent blowout is reported as a budget failure, never as a refusal",
+      "ok": true,
+      "detail": "HTTP 200 with empty content on both attempts (11665 chars of hidden CoT were stripped). Last budget: max_tokens=3200, 3199 reasoning tokens. This is a budget/behaviour failure, not a refusal."
+    },
+    {
+      "name": "the hidden CoT is stripped and only its length is recorded",
+      "ok": true,
+      "detail": "CoT chars stripped: 5993, 11665 — text never present"
+    },
+    {
+      "name": "a real model reply that does not parse is reported as FAILED",
+      "ok": true,
+      "detail": "source: verify/fixtures/gemma-4-e4b-broken-mermaid.txt (1083 bytes, google/gemma-4-e4b)"
+    },
+    {
+      "name": "the real parse error names the offending line",
+      "ok": true,
+      "detail": "line 3:         A[Client/User] -->|1. Request Shortening (Write)| B(Load Balancer);"
+    },
+    {
+      "name": "no API keys found in tracked source",
+      "ok": true,
+      "detail": "grep for sk-*/api_key literals found nothing"
+    }
+  ]
+}

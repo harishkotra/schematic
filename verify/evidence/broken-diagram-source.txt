@@ -1,0 +1,4 @@
+flowchart TD
+  Client[Client] --> LB[Load Balancer]
+  LB --> API[API Server]
+  API -->> Cache[(Redis Cache)]

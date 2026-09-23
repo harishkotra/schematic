@@ -1,0 +1,153 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "seed": {
+    "brief": "a URL shortener at 10M clicks/day",
+    "slotA": {
+      "provider": "lmstudio",
+      "baseUrl": "http://127.0.0.1:1234/v1",
+      "apiKey": "",
+      "model": "ornith-1.0-35b",
+      "temperature": 0,
+      "maxTokens": 1600,
+      "disableReasoning": false
+    },
+    "slotB": {
+      "provider": "lmstudio",
+      "baseUrl": "http://127.0.0.1:1234/v1",
+      "apiKey": "",
+      "model": "google/gemma-4-12b",
+      "temperature": 0,
+      "maxTokens": 1600,
+      "disableReasoning": false
+    }
+  },
+  "idleState": {
+    "hasDesign": true,
+    "badges": [
+      "IDLE",
+      "IDLE"
+    ],
+    "presets": 4,
+    "hasFooter": true,
+    "footerText": "Built by Harish Kotra·Checkout my other builds at dailybuild.xyz",
+    "footerLinks": [
+      "https://harishkotra.me/",
+      "https://dailybuild.xyz/"
+    ]
+  },
+  "ui": {
+    "svgs": 2,
+    "stats": [
+      "NODES 11",
+      "EDGES 19",
+      "SOURCE BYTES 1,420",
+      "LATENCY 51.0 s",
+      "PROMPT TOK 91",
+      "COMPLETION TOK 945",
+      "REASONING TOK 568",
+      "EXTRACTED VIA mermaid-fence",
+      "FINISH REASON stop",
+      "NODES 8",
+      "EDGES 14",
+      "SOURCE BYTES 1,003",
+      "LATENCY 70.4 s",
+      "PROMPT TOK 91",
+      "COMPLETION TOK 1,130",
+      "REASONING TOK 817",
+      "EXTRACTED VIA mermaid-fence",
+      "FINISH REASON stop"
+    ],
+    "tickCount": 24,
+    "ticksWithLabels": 9,
+    "sampleTicks": [
+      "Cache Layer<br>Redis Cluster (node label) line 9 Gen -->|\"Check cache for collision\"| Cache[\"Cache Layer<br/>Redis Cluster\"]",
+      "Redis / Memcached (node label) line 13 Logic -- \"4. Populate Cache\" --> Cache[(Redis / Memcached)]",
+      "Message Queue<br>Apache Kafka (node label) line 27 API1 -.->|\"Async: Log click event\"| Kafka[\"Message Queue<br/>Apache Kafka\"]",
+      "Message Queue - Kafka/RabbitMQ (node label) line 19 WebSrv -- \"7. Emit Click Event\" --> MQ[Message Queue - Kafka/RabbitMQ]",
+      "Load Balancer (node label) line 2 Client[\"Client Browser / App\"] -->|\"HTTPS Request\"| LB[\"Load Balancer\"]",
+      "Load Balancer (node label) line 3 User[User / Client] -- \"1. Submit Long URL\" --> LB[Load Balancer]"
+    ],
+    "foreignObjects": 0,
+    "textNodes": 33,
+    "hasDiffHeadline": true,
+    "diffText": "A planned for observability; B did not. ONLY IN A ornith-1.0-35b 10 302 Redirect Response Analytics Processor<br>Flink / Spark Streaming App Server 1 App Server 2 Cache Layer<br>Redis Cluster Client Browser / App Data Warehouse<br>ClickHous",
+    "hasShareCard": true,
+    "hasCopyJson": true,
+    "footerVisible": true
+  },
+  "wire": {
+    "excerpt": "Schematic\n\nOne identical system-design prompt, two models, one Mermaid flowchart each. The checklist is the payload.\n\nfinished\n121.6 s total\nBRIEF\nDesign both\na URL shortener at 10M clicks/day\na payments service with exactly-once semantics\nan LLM inference gateway with fallbacks\na realtime chat app for 100k concurrent users\nreset config\nA\nConfigure\nornith-1.0-35b\nLM Studio\nB\nConfigure\ngoogle/gemma"
+  },
+  "results": [
+    {
+      "name": "the app mounted in a real browser",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "idle state renders with all four preset briefs",
+      "ok": true,
+      "detail": "4 presets"
+    },
+    {
+      "name": "the Design both control is present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "before any run the badges say IDLE, not FAILED",
+      "ok": true,
+      "detail": "badges: [IDLE, IDLE]"
+    },
+    {
+      "name": "attribution footer renders with both links",
+      "ok": true,
+      "detail": "Built by Harish Kotra·Checkout my other builds at dailybuild.xyz → https://harishkotra.me/, https://dailybuild.xyz/"
+    },
+    {
+      "name": "clicked Design both in the browser",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "both panels reached a final PARSED or FAILED state",
+      "ok": true,
+      "detail": "badges: PARSED / PARSED"
+    },
+    {
+      "name": "mermaid.js rendered real SVG in the browser",
+      "ok": true,
+      "detail": "2 svg(s), 33 <text> label(s) in the first one"
+    },
+    {
+      "name": "labels are <text>, not <foreignObject> (required for the PNG share card)",
+      "ok": true,
+      "detail": "0 foreignObject element(s)"
+    },
+    {
+      "name": "the checklist painted one row per concept per diagram",
+      "ok": true,
+      "detail": "24 tick cells (12 concepts × 2 diagrams)"
+    },
+    {
+      "name": "ticks display the matched label, not just a score",
+      "ok": true,
+      "detail": "Cache Layer<br>Redis Cluster (node label) line 9 Gen -->|\"Check cache for collision\"| Cache[\"Cache Layer<br/>Redis Cluster\"] | Redis / Memcached (node label) line 13 Logic -- \"4. Populate Cache\" --> Cache[(Redis / Memcac"
+    },
+    {
+      "name": "the diff strip rendered",
+      "ok": true,
+      "detail": "A planned for observability; B did not. ONLY IN A ornith-1.0-35b 10 302 Redirect Response Analytics Processor<br>Flink / Spark Streaming App Server 1 App Server 2 Cache Layer<br>Redis Cluster Client Browser / App Data Warehouse<br>ClickHous"
+    },
+    {
+      "name": "the export controls are present",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "the attribution footer survived a full run",
+      "ok": true,
+      "detail": ""
+    }
+  ]
+}

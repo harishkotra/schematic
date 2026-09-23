@@ -1,0 +1,443 @@
+{
+  "brief": "a URL shortener at 10M clicks/day",
+  "promptSent": "Design the architecture for a URL shortener at 10M clicks/day.\n\nOutput ONE Mermaid flowchart. Output only the Mermaid source in a ```mermaid fence. Label every component and every edge.\n\n(request nonce: dc94668c78cb — ignore this line)",
+  "nonce": "dc94668c78cb",
+  "startedAt": "2026-09-23T18:12:29.381Z",
+  "totalLatencyMs": 255137,
+  "a": {
+    "slot": "A",
+    "provider": "lmstudio",
+    "baseUrl": "http://127.0.0.1:1234/v1",
+    "model": "qwen/qwen3.5-9b",
+    "ok": false,
+    "error": "HTTP 200 with empty content on both attempts (11665 chars of hidden CoT were stripped). Last budget: max_tokens=3200, 3199 reasoning tokens. This is a budget/behaviour failure, not a refusal.",
+    "errorKind": "empty-content",
+    "mermaid": null,
+    "extractionPath": "none",
+    "rawReply": "",
+    "latencyMs": 71192,
+    "promptTokens": 91,
+    "completionTokens": 3199,
+    "reasoningTokens": 3199,
+    "reasoningSupported": true,
+    "sha256": null,
+    "rawReplySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "promptSha256": "d0b67b871bd28f4f8fcc2b27585326b4c73d5ff52eff4c90e091acb1ccd1f9de",
+    "nonce": "dc94668c78cb",
+    "promptReused": false,
+    "parseOk": false,
+    "parseError": null,
+    "counts": {
+      "nodes": 0,
+      "edges": 0,
+      "source": "unavailable",
+      "note": "no diagram extracted"
+    },
+    "byteCount": 0,
+    "nodeLabels": [],
+    "edgeLabels": [],
+    "checklist": [
+      {
+        "concept": "Cache",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Queue",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Load balancer",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Auth",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Retry",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Idempotency",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Observability / metrics",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Rate limit",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Database",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Circuit breaker",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Dead-letter",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "CDN",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "maxTokens": 1600,
+        "httpStatus": 200,
+        "latencyMs": 52658,
+        "contentChars": 0,
+        "reasoningCharsStripped": 5993,
+        "reasoningTokens": 1599,
+        "finishReason": "length",
+        "outcome": "empty-content",
+        "error": "HTTP 200 with empty content"
+      },
+      {
+        "attempt": 2,
+        "maxTokens": 3200,
+        "httpStatus": 200,
+        "latencyMs": 71192,
+        "contentChars": 0,
+        "reasoningCharsStripped": 11665,
+        "reasoningTokens": 3199,
+        "finishReason": "length",
+        "outcome": "empty-content",
+        "error": "HTTP 200 with empty content"
+      }
+    ],
+    "finishReason": "length",
+    "truncated": true,
+    "degenerate": false,
+    "retried": true,
+    "sequentialRetry": false,
+    "notes": [
+      "HTTP 200 with empty content — hidden reasoning likely consumed the 1600-token budget; retrying with max_tokens=3200.",
+      "Response carried 5993 chars of chain-of-thought, stripped and not stored.",
+      "Provider reported 1599 reasoning tokens on the empty attempt."
+    ]
+  },
+  "b": {
+    "slot": "B",
+    "provider": "lmstudio",
+    "baseUrl": "http://127.0.0.1:1234/v1",
+    "model": "ornith-1.0-35b",
+    "ok": false,
+    "error": "Parse error on line 29:\n...    Create_Svc -->|{short_url}| API_GW\n----------------------^\nExpecting 'TAGEND', 'STR', 'MD_STR', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'DIAMOND_START'",
+    "errorKind": "parse",
+    "mermaid": "flowchart TD\n    Client[Client Browser / App] -->|HTTPS Request| LB[Load Balancer]\n    \n    subgraph Ingress[\"Ingress Layer\"]\n        LB\n        API_GW[API Gateway]\n    end\n    \n    subgraph Core_Services[\"Core Services\"]\n        Create_Svc[Create Short URL Service]\n        Redirect_Svc[Redirect Service]\n        ID_Gen[Short ID Generator<br/>Base62 + Hash]\n    end\n    \n    subgraph Data_Layer[\"Data & Cache Layer\"]\n        Primary_DB[(Primary Database<br/>PostgreSQL / MySQL)]\n        Redis_Cache[(Redis Cluster<br/>Hot Redirects Cache)]\n    end\n    \n    subgraph Async_Analytics[\"Async Analytics Pipeline\"]\n        MQ[Message Queue<br/>Kafka]\n        Stream_Proc[Stream Processor<br/>Click Aggregator]\n        DW[(Analytics Data Warehouse<br/>ClickHouse)]\n    end\n\n    %% Create Flow\n    API_GW -->|POST /shorten| Create_Svc\n    Create_Svc -->|Generate Unique ID| ID_Gen\n    ID_Gen -->|Short Key + Long URL + TTL| Primary_DB\n    Primary_DB -->|Write Acknowledgment| Create_Svc\n    Create_Svc -->|{short_url}| API_GW\n    API_GW -->|201 Created + JSON Response| Client\n\n    %% Redirect Flow\n    API_GW -->|GET /{short_key}| Redirect_Svc\n    Redirect_Svc -->|Cache Lookup| Redis_Cache\n    Redis_Cache -.->|Hit: Long URL| Redirect_Svc\n    Redirect_Svc -->|Miss: DB Query| Primary_DB\n    Primary_DB -->|Long URL + TTL| Redirect_Svc\n    Redirect_Svc -->|Populate Cache| Redis_Cache\n    Redirect_Svc -->|302 Found + Location Header| Client\n\n    %% Async Analytics Flow\n    Redirect_Svc -->|Publish Click Event| MQ\n    MQ -->|Consume Events| Stream_Proc\n    Stream_Proc -->|Aggregate & Store| DW",
+    "extractionPath": "mermaid-fence",
+    "rawReply": "```mermaid\nflowchart TD\n    Client[Client Browser / App] -->|HTTPS Request| LB[Load Balancer]\n    \n    subgraph Ingress[\"Ingress Layer\"]\n        LB\n        API_GW[API Gateway]\n    end\n    \n    subgraph Core_Services[\"Core Services\"]\n        Create_Svc[Create Short URL Service]\n        Redirect_Svc[Redirect Service]\n        ID_Gen[Short ID Generator<br/>Base62 + Hash]\n    end\n    \n    subgraph Data_Layer[\"Data & Cache Layer\"]\n        Primary_DB[(Primary Database<br/>PostgreSQL / MySQL)]\n        Redis_Cache[(Redis Cluster<br/>Hot Redirects Cache)]\n    end\n    \n    subgraph Async_Analytics[\"Async Analytics Pipeline\"]\n        MQ[Message Queue<br/>Kafka]\n        Stream_Proc[Stream Processor<br/>Click Aggregator]\n        DW[(Analytics Data Warehouse<br/>ClickHouse)]\n    end\n\n    %% Create Flow\n    API_GW -->|POST /shorten| Create_Svc\n    Create_Svc -->|Generate Unique ID| ID_Gen\n    ID_Gen -->|Short Key + Long URL + TTL| Primary_DB\n    Primary_DB -->|Write Acknowledgment| Create_Svc\n    Create_Svc -->|{short_url}| API_GW\n    API_GW -->|201 Created + JSON Response| Client\n\n    %% Redirect Flow\n    API_GW -->|GET /{short_key}| Redirect_Svc\n    Redirect_Svc -->|Cache Lookup| Redis_Cache\n    Redis_Cache -.->|Hit: Long URL| Redirect_Svc\n    Redirect_Svc -->|Miss: DB Query| Primary_DB\n    Primary_DB -->|Long URL + TTL| Redirect_Svc\n    Redirect_Svc -->|Populate Cache| Redis_Cache\n    Redirect_Svc -->|302 Found + Location Header| Client\n\n    %% Async Analytics Flow\n    Redirect_Svc -->|Publish Click Event| MQ\n    MQ -->|Consume Events| Stream_Proc\n    Stream_Proc -->|Aggregate & Store| DW\n```",
+    "latencyMs": 56222,
+    "promptTokens": 91,
+    "completionTokens": 2891,
+    "reasoningTokens": 2439,
+    "reasoningSupported": true,
+    "sha256": "f00bd3fb85af0bee2df8a0eaf44777a6e1f3b9b2b5b2d7cbd83c531eb605d3c7",
+    "rawReplySha256": "50e7752c9d8ae5450cfb91540aa7d3bed141c05c9b0ad0ce188f855c35031a19",
+    "promptSha256": "d0b67b871bd28f4f8fcc2b27585326b4c73d5ff52eff4c90e091acb1ccd1f9de",
+    "nonce": "dc94668c78cb",
+    "promptReused": false,
+    "parseOk": false,
+    "parseError": {
+      "message": "Parse error on line 29:\n...    Create_Svc -->|{short_url}| API_GW\n----------------------^\nExpecting 'TAGEND', 'STR', 'MD_STR', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'DIAMOND_START'",
+      "line": 29,
+      "lineText": "    ID_Gen -->|Short Key + Long URL + TTL| Primary_DB"
+    },
+    "counts": {
+      "nodes": 0,
+      "edges": 0,
+      "source": "unavailable",
+      "note": "diagram did not parse"
+    },
+    "byteCount": 1591,
+    "nodeLabels": [],
+    "edgeLabels": [],
+    "checklist": [
+      {
+        "concept": "Cache",
+        "present": true,
+        "matchedLabel": "subgraph Data_Layer[\"Data & Cache Layer\"]",
+        "matchedTerm": "\\bcach(?:e|es|ed|ing)\\b",
+        "matchedIn": "source",
+        "sourceLine": 15,
+        "sourceText": "subgraph Data_Layer[\"Data & Cache Layer\"]"
+      },
+      {
+        "concept": "Queue",
+        "present": true,
+        "matchedLabel": "MQ[Message Queue<br/>Kafka]",
+        "matchedTerm": "\\bqueue\\w*",
+        "matchedIn": "source",
+        "sourceLine": 21,
+        "sourceText": "MQ[Message Queue<br/>Kafka]"
+      },
+      {
+        "concept": "Load balancer",
+        "present": true,
+        "matchedLabel": "Client[Client Browser / App] -->|HTTPS Request| LB[Load Balancer]",
+        "matchedTerm": "\\bload\\s?balanc\\w*",
+        "matchedIn": "source",
+        "sourceLine": 2,
+        "sourceText": "Client[Client Browser / App] -->|HTTPS Request| LB[Load Balancer]"
+      },
+      {
+        "concept": "Auth",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Retry",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Idempotency",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Observability / metrics",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Rate limit",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Database",
+        "present": true,
+        "matchedLabel": "Primary_DB[(Primary Database<br/>PostgreSQL / MySQL)]",
+        "matchedTerm": "\\bdatabase\\w*",
+        "matchedIn": "source",
+        "sourceLine": 16,
+        "sourceText": "Primary_DB[(Primary Database<br/>PostgreSQL / MySQL)]"
+      },
+      {
+        "concept": "Circuit breaker",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Dead-letter",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "CDN",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "maxTokens": 1600,
+        "httpStatus": 200,
+        "latencyMs": 75052,
+        "contentChars": 0,
+        "reasoningCharsStripped": 6202,
+        "reasoningTokens": 1600,
+        "finishReason": "length",
+        "outcome": "empty-content",
+        "error": "HTTP 200 with empty content"
+      },
+      {
+        "attempt": 2,
+        "maxTokens": 3200,
+        "httpStatus": 200,
+        "latencyMs": 56222,
+        "contentChars": 1606,
+        "reasoningCharsStripped": 9493,
+        "reasoningTokens": 2439,
+        "finishReason": "stop",
+        "outcome": "ok",
+        "error": null
+      }
+    ],
+    "finishReason": "stop",
+    "truncated": false,
+    "degenerate": false,
+    "retried": true,
+    "sequentialRetry": true,
+    "notes": [
+      "Local server refused the concurrent request (HTTP 500), so this slot was re-run on its own. Single-instance local servers such as LM Studio serve one request at a time.",
+      "HTTP 200 with empty content — hidden reasoning likely consumed the 1600-token budget; retrying with max_tokens=3200.",
+      "Response carried 6202 chars of chain-of-thought, stripped and not stored.",
+      "Provider reported 1600 reasoning tokens on the empty attempt."
+    ]
+  },
+  "diff": {
+    "onlyInA": [],
+    "onlyInB": [],
+    "headline": "B planned for caching, a queue, a load balancer and a database; A did not."
+  },
+  "checklistSummary": [
+    {
+      "concept": "Cache",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Queue",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Load balancer",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Auth",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Retry",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Idempotency",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Observability / metrics",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Rate limit",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Database",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Circuit breaker",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Dead-letter",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "CDN",
+      "a": false,
+      "b": false
+    }
+  ],
+  "warnings": [
+    "Slot B: local server refused the concurrent request (HTTP 500); re-ran it sequentially and it still failed.",
+    "Slot A did not produce a rendered diagram: empty-content",
+    "Slot B did not produce a rendered diagram: parse",
+    "Slot A: the model hit the max_tokens ceiling (finish_reason=length); its diagram may be incomplete."
+  ]
+}

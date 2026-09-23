@@ -1,0 +1,81 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Schematic — what does NOT belong in the repository
+#
+# Rule of thumb: anything generated, machine-specific, or secret is ignored.
+# Anything a reader needs in order to trust the project is committed.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# Dependencies — restored by `npm install`.
+# npm workspaces hoist to the root, but a per-workspace node_modules can appear
+# too, so this pattern is deliberately unanchored.
+node_modules/
+
+# Build output — restored by `npm run build`.
+dist/
+build/
+out/
+
+# Secrets. Keys are typed into the browser and sent per request; the server never
+# stores one, so no .env file is needed to run this project at all. These patterns
+# exist so a key pasted into a local file can never be committed by accident.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# TypeScript incremental build info — machine-specific, rewritten on every build.
+*.tsbuildinfo
+
+# Caches
+.vite/
+.cache/
+.eslintcache
+.parcel-cache/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Test / coverage output
+coverage/
+.nyc_output/
+
+# OS cruft
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Editors and IDEs
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+
+# Scratch files and archives
+*.tgz
+*.tmp
+tmp/
+temp/
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Deliberately NOT ignored: verify/evidence/
+#
+# That directory holds the raw JSON behind every claim in VERIFICATION.md. It is
+# generated output, but it is the audit trail — the entire point of this project is
+# that its claims can be re-read rather than taken on trust. Re-running
+# `node verify/e2e.mjs` rewrites it, so expect those files to change in a diff.
+# ─────────────────────────────────────────────────────────────────────────────
+
+docs/

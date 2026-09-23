@@ -1,0 +1,130 @@
+{
+  "parseOk": false,
+  "parseError": {
+    "message": "Parse error on line 4:\n...PI Server]  API -->> Cache[(Redis Cache\n----------------------^\nExpecting 'AMP', 'COLON', 'PIPE', 'TESTSTR', 'DOWN', 'DEFAULT', 'NUM', 'COMMA', 'NODE_STRING', 'BRKT', 'MINUS', 'MULT', 'UNICODE_TEXT', got 'TAGEND'",
+    "line": 4,
+    "lineText": "  API -->> Cache[(Redis Cache)]"
+  },
+  "renderOk": false,
+  "renderError": null,
+  "diagramType": null,
+  "counts": {
+    "nodes": 0,
+    "edges": 0,
+    "source": "unavailable",
+    "note": "diagram did not parse"
+  },
+  "byteCount": 108,
+  "nodeLabels": [],
+  "edgeLabels": [],
+  "checklist": [
+    {
+      "concept": "Cache",
+      "present": true,
+      "matchedLabel": "API -->> Cache[(Redis Cache)]",
+      "matchedTerm": "\\bcach(?:e|es|ed|ing)\\b",
+      "matchedIn": "source",
+      "sourceLine": 4,
+      "sourceText": "API -->> Cache[(Redis Cache)]"
+    },
+    {
+      "concept": "Queue",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Load balancer",
+      "present": true,
+      "matchedLabel": "Client[Client] --> LB[Load Balancer]",
+      "matchedTerm": "\\bload\\s?balanc\\w*",
+      "matchedIn": "source",
+      "sourceLine": 2,
+      "sourceText": "Client[Client] --> LB[Load Balancer]"
+    },
+    {
+      "concept": "Auth",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Retry",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Idempotency",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Observability / metrics",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Rate limit",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Database",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Circuit breaker",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Dead-letter",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "CDN",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    }
+  ]
+}

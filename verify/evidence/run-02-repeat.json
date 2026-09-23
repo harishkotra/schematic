@@ -1,0 +1,468 @@
+{
+  "brief": "a URL shortener at 10M clicks/day",
+  "promptSent": "Design the architecture for a URL shortener at 10M clicks/day.\n\nOutput ONE Mermaid flowchart. Output only the Mermaid source in a ```mermaid fence. Label every component and every edge.\n\n(request nonce: 9bae9d1ddc49 — ignore this line)",
+  "nonce": "9bae9d1ddc49",
+  "startedAt": "2026-09-23T18:07:54.007Z",
+  "totalLatencyMs": 217510,
+  "a": {
+    "slot": "A",
+    "provider": "lmstudio",
+    "baseUrl": "http://127.0.0.1:1234/v1",
+    "model": "google/gemma-4-12b",
+    "ok": false,
+    "error": "Parse error on line 10:\n...-- \"Write Mapping (\n----------------------^\nExpecting 'LINK', 'UNICODE_TEXT', 'EDGE_TEXT', got '1'",
+    "errorKind": "parse",
+    "mermaid": "graph TD\n    %% Client Interaction\n    User((User/Client)) -- \"1. Submit Long URL\" --> LB[Load Balancer]\n    User -- \"2. Access Short Link\" --> LB\n\n    %% Application Layer\n    subgraph App_Layer [Application Layer]\n        LB -- \"Route Request\" --> WS[Web Servers]\n        WS -- \"Validate & Process\" --> SS[Shortening Service]\n    end\n\n    %% Data and Cache Layer\n    subgraph Storage_Layer [Data & Cache Layer]\n        SS -- \"Write Mapping (",
+    "extractionPath": "bare-inline",
+    "rawReply": "```mermaid\ngraph TD\n    %% Client Interaction\n    User((User/Client)) -- \"1. Submit Long URL\" --> LB[Load Balancer]\n    User -- \"2. Access Short Link\" --> LB\n\n    %% Application Layer\n    subgraph App_Layer [Application Layer]\n        LB -- \"Route Request\" --> WS[Web Servers]\n        WS -- \"Validate & Process\" --> SS[Shortening Service]\n    end\n\n    %% Data and Cache Layer\n    subgraph Storage_Layer [Data & Cache Layer]\n        SS -- \"Write Mapping (",
+    "latencyMs": 92202,
+    "promptTokens": 91,
+    "completionTokens": 1600,
+    "reasoningTokens": 1473,
+    "reasoningSupported": true,
+    "sha256": "542b061abe95fee49089de6f7e92ec98d08fd75ec625f3819400bf6cab558b07",
+    "rawReplySha256": "df62107b8be06da89f22ebf252307fc182338e13bd16c2cd0d74cad050e6244c",
+    "promptSha256": "43fff6ff18cec54f5989da0d2a0f39ff9ecf9246b6029cf9d883f813e19d61fe",
+    "nonce": "9bae9d1ddc49",
+    "promptReused": false,
+    "parseOk": false,
+    "parseError": {
+      "message": "Parse error on line 10:\n...-- \"Write Mapping (\n----------------------^\nExpecting 'LINK', 'UNICODE_TEXT', 'EDGE_TEXT', got '1'",
+      "line": 10,
+      "lineText": "    end"
+    },
+    "counts": {
+      "nodes": 0,
+      "edges": 0,
+      "source": "unavailable",
+      "note": "diagram did not parse"
+    },
+    "byteCount": 443,
+    "nodeLabels": [],
+    "edgeLabels": [],
+    "checklist": [
+      {
+        "concept": "Cache",
+        "present": true,
+        "matchedLabel": "%% Data and Cache Layer",
+        "matchedTerm": "\\bcach(?:e|es|ed|ing)\\b",
+        "matchedIn": "source",
+        "sourceLine": 12,
+        "sourceText": "%% Data and Cache Layer"
+      },
+      {
+        "concept": "Queue",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Load balancer",
+        "present": true,
+        "matchedLabel": "User((User/Client)) -- \"1. Submit Long URL\" --> LB[Load Balancer]",
+        "matchedTerm": "\\bload\\s?balanc\\w*",
+        "matchedIn": "source",
+        "sourceLine": 3,
+        "sourceText": "User((User/Client)) -- \"1. Submit Long URL\" --> LB[Load Balancer]"
+      },
+      {
+        "concept": "Auth",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Retry",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Idempotency",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Observability / metrics",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Rate limit",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Database",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Circuit breaker",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Dead-letter",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "CDN",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "maxTokens": 1600,
+        "httpStatus": 200,
+        "latencyMs": 92202,
+        "contentChars": 454,
+        "reasoningCharsStripped": 5651,
+        "reasoningTokens": 1473,
+        "finishReason": "length",
+        "outcome": "ok",
+        "error": null
+      }
+    ],
+    "finishReason": "length",
+    "truncated": true,
+    "degenerate": false,
+    "retried": false,
+    "sequentialRetry": true,
+    "notes": [
+      "Local server refused the concurrent request (HTTP 400), so this slot was re-run on its own. Single-instance local servers such as LM Studio serve one request at a time.",
+      "The provider stopped at the max_tokens ceiling (finish_reason=length), so the reply may be cut off mid-diagram. Raise Max Tokens for this slot.",
+      "diagram began at line 2 with prose before it"
+    ]
+  },
+  "b": {
+    "slot": "B",
+    "provider": "lmstudio",
+    "baseUrl": "http://127.0.0.1:1234/v1",
+    "model": "ornith-1.0-35b",
+    "ok": true,
+    "error": null,
+    "errorKind": "none",
+    "mermaid": "flowchart TD\n    User[Client Browser / Mobile App] -->|HTTPS Request| LB[Global Load Balancer<br/>Cloudflare/AWS ALB]\n    \n    subgraph Edge[\"Edge & Ingress\"]\n        LB\n    end\n    \n    LB -->|Forward Traffic| API_GW[API Gateway & Web Server<br/>Node.js/Go/Java]\n    \n    subgraph Core[\"Core Application Layer\"]\n        API_GW\n        Auth[Auth & Rate Limiting Service<br/>Token validation + 10k req/min cap]\n        Shortener[Short URL Generator<br/>Base62 encoding + Bloom filter collision check]\n        Cache[Redis Cluster<br/>Hot URL cache + Rate limit counters]\n    end\n    \n    API_GW -->|Validate & Throttle| Auth\n    Auth -->|Create/Shorten Request| Shortener\n    Auth -->|Redirect Request| Cache\n    \n    Shortener -->|Persist Mapping| Primary_DB[(Primary Database<br/>PostgreSQL with Read Replicas)]\n    Shortener -->|JSON Response| API_GW\n    \n    API_GW -->|Check Cache| Cache\n    Cache -->|Cache Hit: 302 Redirect| User\n    Cache -->|Cache Miss: Query DB| Primary_DB\n    Primary_DB -->|URL Record + TTL| Cache\n    Primary_DB -->|Async Click Event| MQ[Message Queue<br/>Apache Kafka / RabbitMQ]\n    \n    API_GW -->|HTTP 302 Redirect| User\n    \n    subgraph Analytics[\"Async Analytics Pipeline\"]\n        MQ\n        Consumer[Click Processor Service<br/>Batch aggregation + Geo/IP enrichment]\n        Analytics_DB[(Analytics Data Warehouse<br/>ClickHouse / BigQuery)]\n    end\n    \n    MQ -->|Consume Events| Consumer\n    Consumer -->|Store Aggregated Metrics| Analytics_DB\n    Consumer -->|Update Click Counters| Primary_DB",
+    "extractionPath": "mermaid-fence",
+    "rawReply": "```mermaid\nflowchart TD\n    User[Client Browser / Mobile App] -->|HTTPS Request| LB[Global Load Balancer<br/>Cloudflare/AWS ALB]\n    \n    subgraph Edge[\"Edge & Ingress\"]\n        LB\n    end\n    \n    LB -->|Forward Traffic| API_GW[API Gateway & Web Server<br/>Node.js/Go/Java]\n    \n    subgraph Core[\"Core Application Layer\"]\n        API_GW\n        Auth[Auth & Rate Limiting Service<br/>Token validation + 10k req/min cap]\n        Shortener[Short URL Generator<br/>Base62 encoding + Bloom filter collision check]\n        Cache[Redis Cluster<br/>Hot URL cache + Rate limit counters]\n    end\n    \n    API_GW -->|Validate & Throttle| Auth\n    Auth -->|Create/Shorten Request| Shortener\n    Auth -->|Redirect Request| Cache\n    \n    Shortener -->|Persist Mapping| Primary_DB[(Primary Database<br/>PostgreSQL with Read Replicas)]\n    Shortener -->|JSON Response| API_GW\n    \n    API_GW -->|Check Cache| Cache\n    Cache -->|Cache Hit: 302 Redirect| User\n    Cache -->|Cache Miss: Query DB| Primary_DB\n    Primary_DB -->|URL Record + TTL| Cache\n    Primary_DB -->|Async Click Event| MQ[Message Queue<br/>Apache Kafka / RabbitMQ]\n    \n    API_GW -->|HTTP 302 Redirect| User\n    \n    subgraph Analytics[\"Async Analytics Pipeline\"]\n        MQ\n        Consumer[Click Processor Service<br/>Batch aggregation + Geo/IP enrichment]\n        Analytics_DB[(Analytics Data Warehouse<br/>ClickHouse / BigQuery)]\n    end\n    \n    MQ -->|Consume Events| Consumer\n    Consumer -->|Store Aggregated Metrics| Analytics_DB\n    Consumer -->|Update Click Counters| Primary_DB\n```",
+    "latencyMs": 54651,
+    "promptTokens": 92,
+    "completionTokens": 2719,
+    "reasoningTokens": 2314,
+    "reasoningSupported": true,
+    "sha256": "05e7b431d59186ab88e49451ec8c23f6d724087cfae697afa887ac26b68a1340",
+    "rawReplySha256": "38157365a4c9e5378bdd1deec57bad0b7fb875134c9791959117276bef18fb72",
+    "promptSha256": "43fff6ff18cec54f5989da0d2a0f39ff9ecf9246b6029cf9d883f813e19d61fe",
+    "nonce": "9bae9d1ddc49",
+    "promptReused": false,
+    "parseOk": true,
+    "parseError": null,
+    "counts": {
+      "nodes": 10,
+      "edges": 16,
+      "source": "parsed",
+      "note": null
+    },
+    "byteCount": 1534,
+    "nodeLabels": [
+      "Client Browser / Mobile App",
+      "Global Load Balancer<br>Cloudflare/AWS ALB",
+      "API Gateway &amp; Web Server<br>Node.js/Go/Java",
+      "Auth &amp; Rate Limiting Service<br>Token validation + 10k req/min cap",
+      "Short URL Generator<br>Base62 encoding + Bloom filter collision check",
+      "Redis Cluster<br>Hot URL cache + Rate limit counters",
+      "Primary Database<br>PostgreSQL with Read Replicas",
+      "Message Queue<br>Apache Kafka / RabbitMQ",
+      "Click Processor Service<br>Batch aggregation + Geo/IP enrichment",
+      "Analytics Data Warehouse<br>ClickHouse / BigQuery"
+    ],
+    "edgeLabels": [
+      "HTTPS Request",
+      "Forward Traffic",
+      "Validate & Throttle",
+      "Create/Shorten Request",
+      "Redirect Request",
+      "Persist Mapping",
+      "JSON Response",
+      "Check Cache",
+      "Cache Hit: 302 Redirect",
+      "Cache Miss: Query DB",
+      "URL Record + TTL",
+      "Async Click Event",
+      "HTTP 302 Redirect",
+      "Consume Events",
+      "Store Aggregated Metrics",
+      "Update Click Counters"
+    ],
+    "checklist": [
+      {
+        "concept": "Cache",
+        "present": true,
+        "matchedLabel": "Redis Cluster<br>Hot URL cache + Rate limit counters",
+        "matchedTerm": "\\bcach(?:e|es|ed|ing)\\b",
+        "matchedIn": "node",
+        "sourceLine": 14,
+        "sourceText": "Cache[Redis Cluster<br/>Hot URL cache + Rate limit counters]"
+      },
+      {
+        "concept": "Queue",
+        "present": true,
+        "matchedLabel": "Message Queue<br>Apache Kafka / RabbitMQ",
+        "matchedTerm": "\\bqueue\\w*",
+        "matchedIn": "node",
+        "sourceLine": 28,
+        "sourceText": "Primary_DB -->|Async Click Event| MQ[Message Queue<br/>Apache Kafka / RabbitMQ]"
+      },
+      {
+        "concept": "Load balancer",
+        "present": true,
+        "matchedLabel": "Global Load Balancer<br>Cloudflare/AWS ALB",
+        "matchedTerm": "\\bload\\s?balanc\\w*",
+        "matchedIn": "node",
+        "sourceLine": 2,
+        "sourceText": "User[Client Browser / Mobile App] -->|HTTPS Request| LB[Global Load Balancer<br/>Cloudflare/AWS ALB]"
+      },
+      {
+        "concept": "Auth",
+        "present": true,
+        "matchedLabel": "Auth &amp; Rate Limiting Service<br>Token validation + 10k req/min cap",
+        "matchedTerm": "\\bauth(?!or)\\w*",
+        "matchedIn": "node",
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Retry",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Idempotency",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Observability / metrics",
+        "present": true,
+        "matchedLabel": "Store Aggregated Metrics",
+        "matchedTerm": "\\bmetric\\w*",
+        "matchedIn": "edge",
+        "sourceLine": 39,
+        "sourceText": "Consumer -->|Store Aggregated Metrics| Analytics_DB"
+      },
+      {
+        "concept": "Rate limit",
+        "present": true,
+        "matchedLabel": "Auth &amp; Rate Limiting Service<br>Token validation + 10k req/min cap",
+        "matchedTerm": "\\brate[-\\s]?limit\\w*",
+        "matchedIn": "node",
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Database",
+        "present": true,
+        "matchedLabel": "Primary Database<br>PostgreSQL with Read Replicas",
+        "matchedTerm": "\\bdatabase\\w*",
+        "matchedIn": "node",
+        "sourceLine": 21,
+        "sourceText": "Shortener -->|Persist Mapping| Primary_DB[(Primary Database<br/>PostgreSQL with Read Replicas)]"
+      },
+      {
+        "concept": "Circuit breaker",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Dead-letter",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "CDN",
+        "present": true,
+        "matchedLabel": "Global Load Balancer<br>Cloudflare/AWS ALB",
+        "matchedTerm": "\\bcloudflare\\b",
+        "matchedIn": "node",
+        "sourceLine": 2,
+        "sourceText": "User[Client Browser / Mobile App] -->|HTTPS Request| LB[Global Load Balancer<br/>Cloudflare/AWS ALB]"
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "maxTokens": 1600,
+        "httpStatus": 200,
+        "latencyMs": 70522,
+        "contentChars": 0,
+        "reasoningCharsStripped": 6549,
+        "reasoningTokens": 1600,
+        "finishReason": "length",
+        "outcome": "empty-content",
+        "error": "HTTP 200 with empty content"
+      },
+      {
+        "attempt": 2,
+        "maxTokens": 3200,
+        "httpStatus": 200,
+        "latencyMs": 54651,
+        "contentChars": 1549,
+        "reasoningCharsStripped": 9395,
+        "reasoningTokens": 2314,
+        "finishReason": "stop",
+        "outcome": "ok",
+        "error": null
+      }
+    ],
+    "finishReason": "stop",
+    "truncated": false,
+    "degenerate": false,
+    "retried": true,
+    "sequentialRetry": false,
+    "notes": [
+      "HTTP 200 with empty content — hidden reasoning likely consumed the 1600-token budget; retrying with max_tokens=3200.",
+      "Response carried 6549 chars of chain-of-thought, stripped and not stored.",
+      "Provider reported 1600 reasoning tokens on the empty attempt."
+    ]
+  },
+  "diff": {
+    "onlyInA": [],
+    "onlyInB": [
+      "API Gateway &amp; Web Server<br>Node.js/Go/Java",
+      "Analytics Data Warehouse<br>ClickHouse / BigQuery",
+      "Auth &amp; Rate Limiting Service<br>Token validation + 10k req/min cap",
+      "Click Processor Service<br>Batch aggregation + Geo/IP enrichment",
+      "Client Browser / Mobile App",
+      "Global Load Balancer<br>Cloudflare/AWS ALB",
+      "Message Queue<br>Apache Kafka / RabbitMQ",
+      "Primary Database<br>PostgreSQL with Read Replicas",
+      "Redis Cluster<br>Hot URL cache + Rate limit counters",
+      "Short URL Generator<br>Base62 encoding + Bloom filter collision check"
+    ],
+    "headline": "B planned for a queue, auth, observability, rate limiting, a database and a CDN; A did not."
+  },
+  "checklistSummary": [
+    {
+      "concept": "Cache",
+      "a": true,
+      "b": true
+    },
+    {
+      "concept": "Queue",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Load balancer",
+      "a": true,
+      "b": true
+    },
+    {
+      "concept": "Auth",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Retry",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Idempotency",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Observability / metrics",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Rate limit",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Database",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Circuit breaker",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Dead-letter",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "CDN",
+      "a": false,
+      "b": true
+    }
+  ],
+  "warnings": [
+    "Slot A: local server refused the concurrent request (HTTP 400); re-ran it sequentially and it still failed.",
+    "Slot A did not produce a rendered diagram: parse",
+    "Slot A: the model hit the max_tokens ceiling (finish_reason=length); its diagram may be incomplete."
+  ]
+}

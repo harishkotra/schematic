@@ -1,0 +1,479 @@
+{
+  "brief": "a URL shortener at 10M clicks/day",
+  "promptSent": "Design the architecture for a URL shortener at 10M clicks/day.\n\nOutput ONE Mermaid flowchart. Output only the Mermaid source in a ```mermaid fence. Label every component and every edge.\n\n(request nonce: 36ccd5e2775c — ignore this line)",
+  "nonce": "36ccd5e2775c",
+  "startedAt": "2026-09-23T18:05:40.748Z",
+  "totalLatencyMs": 133249,
+  "a": {
+    "slot": "A",
+    "provider": "lmstudio",
+    "baseUrl": "http://127.0.0.1:1234/v1",
+    "model": "google/gemma-4-12b",
+    "ok": true,
+    "error": null,
+    "errorKind": "none",
+    "mermaid": "graph TD\n    %% Client Layer\n    User[User / Client] -- \"1. Request Shorten or Redirect\" --> LB[Load Balancer]\n\n    %% Gateway Layer\n    LB -- \"2. Route Traffic\" --> WebServer[Web Servers / API Gateway]\n\n    %% Core Logic & Storage\n    subgraph \"Core Services\"\n        WebServer -- \"3a. Create Mapping\" --> ShortService[Shortening Service]\n        ShortService -- \"4a. Persist Record\" --> MainDB[(Primary Database - NoSQL/SQL)]\n        \n        WebServer -- \"3b. Check Cache\" --> Cache[(Cache Layer - Redis/Memcached)]\n        MainDB -. \"Populate Cache\" .-> Cache\n    end\n\n    %% Analytics Pipeline\n    subgraph \"Asynchronous Processing\"\n        WebServer -- \"5. Emit Click Event\" --> MQ[Message Queue - Kafka/RabbitMQ]\n        MQ -- \"6. Consume Events\" --> Worker[Analytics Worker]\n        Worker -- \"7. Store Metrics\" --> AnalyticsDB[(Analytics Database)]\n    end\n\n    %% Flow Descriptions\n    subgraph \"Read Path (Redirect)\"\n        direction LR\n        WebS_R[Web Server] -- \"Check Cache\" --> C[Cache]\n        C -- \"On Miss\" --> DB[Main DB]\n        DB -- \"Update Cache\" --> C\n    end\n\n    %% Styling\n    style MainDB fill:#f96,stroke:#333\n    style Cache fill:#6cf,stroke:#333\n    style MQ fill:#f9f,stroke:#333\n    style AnalyticsDB fill:#9f9,stroke:#333",
+    "extractionPath": "mermaid-fence",
+    "rawReply": "```mermaid\ngraph TD\n    %% Client Layer\n    User[User / Client] -- \"1. Request Shorten or Redirect\" --> LB[Load Balancer]\n\n    %% Gateway Layer\n    LB -- \"2. Route Traffic\" --> WebServer[Web Servers / API Gateway]\n\n    %% Core Logic & Storage\n    subgraph \"Core Services\"\n        WebServer -- \"3a. Create Mapping\" --> ShortService[Shortening Service]\n        ShortService -- \"4a. Persist Record\" --> MainDB[(Primary Database - NoSQL/SQL)]\n        \n        WebServer -- \"3b. Check Cache\" --> Cache[(Cache Layer - Redis/Memcached)]\n        MainDB -. \"Populate Cache\" .-> Cache\n    end\n\n    %% Analytics Pipeline\n    subgraph \"Asynchronous Processing\"\n        WebServer -- \"5. Emit Click Event\" --> MQ[Message Queue - Kafka/RabbitMQ]\n        MQ -- \"6. Consume Events\" --> Worker[Analytics Worker]\n        Worker -- \"7. Store Metrics\" --> AnalyticsDB[(Analytics Database)]\n    end\n\n    %% Flow Descriptions\n    subgraph \"Read Path (Redirect)\"\n        direction LR\n        WebS_R[Web Server] -- \"Check Cache\" --> C[Cache]\n        C -- \"On Miss\" --> DB[Main DB]\n        DB -- \"Update Cache\" --> C\n    end\n\n    %% Styling\n    style MainDB fill:#f96,stroke:#333\n    style Cache fill:#6cf,stroke:#333\n    style MQ fill:#f9f,stroke:#333\n    style AnalyticsDB fill:#9f9,stroke:#333\n```",
+    "latencyMs": 76814,
+    "promptTokens": 92,
+    "completionTokens": 1260,
+    "reasoningTokens": 891,
+    "reasoningSupported": true,
+    "sha256": "b04477634e73dd0001122171584fe5c718a57dec6cc2f66e1a5fa17f3a6a6a33",
+    "rawReplySha256": "3f17cf2b034eda4a89f00022196406b08c6027c7877efe3b840cfae6803f09b5",
+    "promptSha256": "4752923c66ae27af84a1e359394244d85d6b7ee6a5ddfcfaae209bb59b921b45",
+    "nonce": "36ccd5e2775c",
+    "promptReused": false,
+    "parseOk": true,
+    "parseError": null,
+    "counts": {
+      "nodes": 12,
+      "edges": 12,
+      "source": "parsed",
+      "note": null
+    },
+    "byteCount": 1259,
+    "nodeLabels": [
+      "User / Client",
+      "Load Balancer",
+      "Web Servers / API Gateway",
+      "Shortening Service",
+      "Primary Database - NoSQL/SQL",
+      "Cache Layer - Redis/Memcached",
+      "Message Queue - Kafka/RabbitMQ",
+      "Analytics Worker",
+      "Analytics Database",
+      "Web Server",
+      "Cache",
+      "Main DB"
+    ],
+    "edgeLabels": [
+      "1. Request Shorten or Redirect",
+      "2. Route Traffic",
+      "3a. Create Mapping",
+      "4a. Persist Record",
+      "3b. Check Cache",
+      "Populate Cache",
+      "5. Emit Click Event",
+      "6. Consume Events",
+      "7. Store Metrics",
+      "Check Cache",
+      "On Miss",
+      "Update Cache"
+    ],
+    "checklist": [
+      {
+        "concept": "Cache",
+        "present": true,
+        "matchedLabel": "Cache Layer - Redis/Memcached",
+        "matchedTerm": "\\bcach(?:e|es|ed|ing)\\b",
+        "matchedIn": "node",
+        "sourceLine": 13,
+        "sourceText": "WebServer -- \"3b. Check Cache\" --> Cache[(Cache Layer - Redis/Memcached)]"
+      },
+      {
+        "concept": "Queue",
+        "present": true,
+        "matchedLabel": "Message Queue - Kafka/RabbitMQ",
+        "matchedTerm": "\\bqueue\\w*",
+        "matchedIn": "node",
+        "sourceLine": 19,
+        "sourceText": "WebServer -- \"5. Emit Click Event\" --> MQ[Message Queue - Kafka/RabbitMQ]"
+      },
+      {
+        "concept": "Load balancer",
+        "present": true,
+        "matchedLabel": "Load Balancer",
+        "matchedTerm": "\\bload\\s?balanc\\w*",
+        "matchedIn": "node",
+        "sourceLine": 3,
+        "sourceText": "User[User / Client] -- \"1. Request Shorten or Redirect\" --> LB[Load Balancer]"
+      },
+      {
+        "concept": "Auth",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Retry",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Idempotency",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Observability / metrics",
+        "present": true,
+        "matchedLabel": "7. Store Metrics",
+        "matchedTerm": "\\bmetric\\w*",
+        "matchedIn": "edge",
+        "sourceLine": 21,
+        "sourceText": "Worker -- \"7. Store Metrics\" --> AnalyticsDB[(Analytics Database)]"
+      },
+      {
+        "concept": "Rate limit",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Database",
+        "present": true,
+        "matchedLabel": "Primary Database - NoSQL/SQL",
+        "matchedTerm": "\\bdatabase\\w*",
+        "matchedIn": "node",
+        "sourceLine": 11,
+        "sourceText": "ShortService -- \"4a. Persist Record\" --> MainDB[(Primary Database - NoSQL/SQL)]"
+      },
+      {
+        "concept": "Circuit breaker",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Dead-letter",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "CDN",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "maxTokens": 1600,
+        "httpStatus": 200,
+        "latencyMs": 76814,
+        "contentChars": 1274,
+        "reasoningCharsStripped": 3348,
+        "reasoningTokens": 891,
+        "finishReason": "stop",
+        "outcome": "ok",
+        "error": null
+      }
+    ],
+    "finishReason": "stop",
+    "truncated": false,
+    "degenerate": false,
+    "retried": false,
+    "sequentialRetry": true,
+    "notes": [
+      "Local server refused the concurrent request (HTTP 400), so this slot was re-run on its own. Single-instance local servers such as LM Studio serve one request at a time."
+    ]
+  },
+  "b": {
+    "slot": "B",
+    "provider": "lmstudio",
+    "baseUrl": "http://127.0.0.1:1234/v1",
+    "model": "ornith-1.0-35b",
+    "ok": true,
+    "error": null,
+    "errorKind": "none",
+    "mermaid": "flowchart TD\n    %% Client Layer\n    A[User Browser / Mobile App]\n\n    %% Edge Layer\n    B[CDN / Edge Cache]\n\n    %% Gateway Layer\n    C[Load Balancer]\n\n    %% Service Layer\n    D[Shortener API Service]\n\n    %% Data Layer\n    E[(Primary Database<br/>Sharded Key-Value Store)]\n    F[(Cache Layer<br/>Redis Cluster)]\n\n    %% Analytics Layer\n    G[Click Logger / Stream Processor]\n    H[(Analytics DB<br/>Time-Series Store)]\n\n    %% === WRITE PATH: Create Short URL ===\n    A -->|\"1. POST /shorten {long_url}\"| C\n    C -->|\"2. Route to API\"| D\n    D -->|\"3. Generate Unique Short Code\"| E\n    E -->|\"4. Persist Mapping (code → long_url)\"| D\n    D -->|\"5. Invalidate CDN Edge Cache\"| B\n    B -->|\"6. Return {short_url}\"| A\n\n    %% === READ PATH: Resolve Short URL ===\n    A -->|\"7. GET /{short_code}\"| B\n    B -->|\"8a. Cache Hit → 302 Redirect\"| A\n    B -->|\"8b. Cache Miss → Forward Request\"| C\n    C -->|\"9. Route to API\"| D\n    D -->|\"10. Check Redis for Code\"| F\n    F -->|\"11a. Cache Hit → Return Long URL\"| D\n    F -->|\"11b. Cache Miss → Query DB\"| E\n    E -->|\"12. Lookup Mapping by Short Code\"| D\n    D -->|\"13. Write to Redis (TTL 24h)\"| F\n    D -->|\"14. 302 Redirect to Long URL\"| A\n\n    %% === ANALYTICS PATH: Track Clicks ===\n    D -->|\"15. Async: Emit Click Event\"| G\n    G -->|\"16. Aggregate & Store Metrics\"| H",
+    "extractionPath": "mermaid-fence",
+    "rawReply": "```mermaid\nflowchart TD\n    %% Client Layer\n    A[User Browser / Mobile App]\n\n    %% Edge Layer\n    B[CDN / Edge Cache]\n\n    %% Gateway Layer\n    C[Load Balancer]\n\n    %% Service Layer\n    D[Shortener API Service]\n\n    %% Data Layer\n    E[(Primary Database<br/>Sharded Key-Value Store)]\n    F[(Cache Layer<br/>Redis Cluster)]\n\n    %% Analytics Layer\n    G[Click Logger / Stream Processor]\n    H[(Analytics DB<br/>Time-Series Store)]\n\n    %% === WRITE PATH: Create Short URL ===\n    A -->|\"1. POST /shorten {long_url}\"| C\n    C -->|\"2. Route to API\"| D\n    D -->|\"3. Generate Unique Short Code\"| E\n    E -->|\"4. Persist Mapping (code → long_url)\"| D\n    D -->|\"5. Invalidate CDN Edge Cache\"| B\n    B -->|\"6. Return {short_url}\"| A\n\n    %% === READ PATH: Resolve Short URL ===\n    A -->|\"7. GET /{short_code}\"| B\n    B -->|\"8a. Cache Hit → 302 Redirect\"| A\n    B -->|\"8b. Cache Miss → Forward Request\"| C\n    C -->|\"9. Route to API\"| D\n    D -->|\"10. Check Redis for Code\"| F\n    F -->|\"11a. Cache Hit → Return Long URL\"| D\n    F -->|\"11b. Cache Miss → Query DB\"| E\n    E -->|\"12. Lookup Mapping by Short Code\"| D\n    D -->|\"13. Write to Redis (TTL 24h)\"| F\n    D -->|\"14. 302 Redirect to Long URL\"| A\n\n    %% === ANALYTICS PATH: Track Clicks ===\n    D -->|\"15. Async: Emit Click Event\"| G\n    G -->|\"16. Aggregate & Store Metrics\"| H\n```",
+    "latencyMs": 55702,
+    "promptTokens": 92,
+    "completionTokens": 1222,
+    "reasoningTokens": 784,
+    "reasoningSupported": true,
+    "sha256": "ab3d755abd8605e0c9430b82207e91626d3f81bd556a226e690b6b0bd8773ee5",
+    "rawReplySha256": "210ab1b458608e61f9b9804cad2fd9e504b8d3727dcbd0a56dee3b37a9ed4e3a",
+    "promptSha256": "4752923c66ae27af84a1e359394244d85d6b7ee6a5ddfcfaae209bb59b921b45",
+    "nonce": "36ccd5e2775c",
+    "promptReused": false,
+    "parseOk": true,
+    "parseError": null,
+    "counts": {
+      "nodes": 8,
+      "edges": 18,
+      "source": "parsed",
+      "note": null
+    },
+    "byteCount": 1331,
+    "nodeLabels": [
+      "User Browser / Mobile App",
+      "CDN / Edge Cache",
+      "Load Balancer",
+      "Shortener API Service",
+      "Primary Database<br>Sharded Key-Value Store",
+      "Cache Layer<br>Redis Cluster",
+      "Click Logger / Stream Processor",
+      "Analytics DB<br>Time-Series Store"
+    ],
+    "edgeLabels": [
+      "1. POST /shorten {long_url}",
+      "2. Route to API",
+      "3. Generate Unique Short Code",
+      "4. Persist Mapping (code → long_url)",
+      "5. Invalidate CDN Edge Cache",
+      "6. Return {short_url}",
+      "7. GET /{short_code}",
+      "8a. Cache Hit → 302 Redirect",
+      "8b. Cache Miss → Forward Request",
+      "9. Route to API",
+      "10. Check Redis for Code",
+      "11a. Cache Hit → Return Long URL",
+      "11b. Cache Miss → Query DB",
+      "12. Lookup Mapping by Short Code",
+      "13. Write to Redis (TTL 24h)",
+      "14. 302 Redirect to Long URL",
+      "15. Async: Emit Click Event",
+      "16. Aggregate & Store Metrics"
+    ],
+    "checklist": [
+      {
+        "concept": "Cache",
+        "present": true,
+        "matchedLabel": "CDN / Edge Cache",
+        "matchedTerm": "\\bcach(?:e|es|ed|ing)\\b",
+        "matchedIn": "node",
+        "sourceLine": 6,
+        "sourceText": "B[CDN / Edge Cache]"
+      },
+      {
+        "concept": "Queue",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Load balancer",
+        "present": true,
+        "matchedLabel": "Load Balancer",
+        "matchedTerm": "\\bload\\s?balanc\\w*",
+        "matchedIn": "node",
+        "sourceLine": 9,
+        "sourceText": "C[Load Balancer]"
+      },
+      {
+        "concept": "Auth",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Retry",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Idempotency",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Observability / metrics",
+        "present": true,
+        "matchedLabel": "16. Aggregate & Store Metrics",
+        "matchedTerm": "\\bmetric\\w*",
+        "matchedIn": "edge",
+        "sourceLine": 44,
+        "sourceText": "G -->|\"16. Aggregate & Store Metrics\"| H"
+      },
+      {
+        "concept": "Rate limit",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Database",
+        "present": true,
+        "matchedLabel": "Primary Database<br>Sharded Key-Value Store",
+        "matchedTerm": "\\bdatabase\\w*",
+        "matchedIn": "node",
+        "sourceLine": 15,
+        "sourceText": "E[(Primary Database<br/>Sharded Key-Value Store)]"
+      },
+      {
+        "concept": "Circuit breaker",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Dead-letter",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "CDN",
+        "present": true,
+        "matchedLabel": "CDN / Edge Cache",
+        "matchedTerm": "\\bCDN\\b",
+        "matchedIn": "node",
+        "sourceLine": 6,
+        "sourceText": "B[CDN / Edge Cache]"
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "maxTokens": 1600,
+        "httpStatus": 200,
+        "latencyMs": 55702,
+        "contentChars": 1336,
+        "reasoningCharsStripped": 2984,
+        "reasoningTokens": 784,
+        "finishReason": "stop",
+        "outcome": "ok",
+        "error": null
+      }
+    ],
+    "finishReason": "stop",
+    "truncated": false,
+    "degenerate": false,
+    "retried": false,
+    "sequentialRetry": false,
+    "notes": []
+  },
+  "diff": {
+    "onlyInA": [
+      "Analytics Database",
+      "Analytics Worker",
+      "Cache",
+      "Cache Layer - Redis/Memcached",
+      "Main DB",
+      "Message Queue - Kafka/RabbitMQ",
+      "Primary Database - NoSQL/SQL",
+      "Shortening Service",
+      "User / Client",
+      "Web Server",
+      "Web Servers / API Gateway"
+    ],
+    "onlyInB": [
+      "Analytics DB<br>Time-Series Store",
+      "CDN / Edge Cache",
+      "Cache Layer<br>Redis Cluster",
+      "Click Logger / Stream Processor",
+      "Primary Database<br>Sharded Key-Value Store",
+      "Shortener API Service",
+      "User Browser / Mobile App"
+    ],
+    "headline": "B added a CDN; A added a queue."
+  },
+  "checklistSummary": [
+    {
+      "concept": "Cache",
+      "a": true,
+      "b": true
+    },
+    {
+      "concept": "Queue",
+      "a": true,
+      "b": false
+    },
+    {
+      "concept": "Load balancer",
+      "a": true,
+      "b": true
+    },
+    {
+      "concept": "Auth",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Retry",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Idempotency",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Observability / metrics",
+      "a": true,
+      "b": true
+    },
+    {
+      "concept": "Rate limit",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Database",
+      "a": true,
+      "b": true
+    },
+    {
+      "concept": "Circuit breaker",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Dead-letter",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "CDN",
+      "a": false,
+      "b": true
+    }
+  ],
+  "warnings": [
+    "Slot A: local server refused the concurrent request (HTTP 400); re-ran it sequentially and it succeeded."
+  ]
+}

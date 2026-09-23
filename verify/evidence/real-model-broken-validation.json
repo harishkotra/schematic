@@ -1,0 +1,130 @@
+{
+  "parseOk": false,
+  "parseError": {
+    "message": "Parse error on line 3:\n... Request Shortening (Write)| B(Load Bala\n-----------------------^\nExpecting 'SQE', 'DOUBLECIRCLEEND', 'PE', '-)', 'STADIUMEND', 'SUBROUTINEEND', 'PIPE', 'CYLINDEREND', 'DIAMOND_STOP', 'TAGEND', 'TRAPEND', 'INVTRAPEND', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'PS'",
+    "line": 3,
+    "lineText": "        A[Client/User] -->|1. Request Shortening (Write)| B(Load Balancer);"
+  },
+  "renderOk": false,
+  "renderError": null,
+  "diagramType": null,
+  "counts": {
+    "nodes": 0,
+    "edges": 0,
+    "source": "unavailable",
+    "note": "diagram did not parse"
+  },
+  "byteCount": 1083,
+  "nodeLabels": [],
+  "edgeLabels": [],
+  "checklist": [
+    {
+      "concept": "Cache",
+      "present": true,
+      "matchedLabel": "subgraph Data & Cache Layer",
+      "matchedTerm": "\\bcach(?:e|es|ed|ing)\\b",
+      "matchedIn": "source",
+      "sourceLine": 11,
+      "sourceText": "subgraph Data & Cache Layer"
+    },
+    {
+      "concept": "Queue",
+      "present": true,
+      "matchedLabel": "C -->|Log Click Event (Async)| F[Message Queue - Kafka/SQS];",
+      "matchedTerm": "\\bqueue\\w*",
+      "matchedIn": "source",
+      "sourceLine": 20,
+      "sourceText": "C -->|Log Click Event (Async)| F[Message Queue - Kafka/SQS];"
+    },
+    {
+      "concept": "Load balancer",
+      "present": true,
+      "matchedLabel": "A[Client/User] -->|1. Request Shortening (Write)| B(Load Balancer);",
+      "matchedTerm": "\\bload\\s?balanc\\w*",
+      "matchedIn": "source",
+      "sourceLine": 3,
+      "sourceText": "A[Client/User] -->|1. Request Shortening (Write)| B(Load Balancer);"
+    },
+    {
+      "concept": "Auth",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Retry",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Idempotency",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Observability / metrics",
+      "present": true,
+      "matchedLabel": "C -->|Log Click Event (Async)| F[Message Queue - Kafka/SQS];",
+      "matchedTerm": "\\blogs?\\b",
+      "matchedIn": "source",
+      "sourceLine": 20,
+      "sourceText": "C -->|Log Click Event (Async)| F[Message Queue - Kafka/SQS];"
+    },
+    {
+      "concept": "Rate limit",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Database",
+      "present": true,
+      "matchedLabel": "D -- Miss/New Request --> E[Database Cluster - PostgreSQL/NoSQL];",
+      "matchedTerm": "\\bdatabase\\w*",
+      "matchedIn": "source",
+      "sourceLine": 14,
+      "sourceText": "D -- Miss/New Request --> E[Database Cluster - PostgreSQL/NoSQL];"
+    },
+    {
+      "concept": "Circuit breaker",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "Dead-letter",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    },
+    {
+      "concept": "CDN",
+      "present": false,
+      "matchedLabel": null,
+      "matchedTerm": null,
+      "matchedIn": null,
+      "sourceLine": null,
+      "sourceText": null
+    }
+  ]
+}

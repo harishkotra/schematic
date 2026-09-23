@@ -1,0 +1,26 @@
+{
+  "name": "schematic",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Two models, one architecture brief, one Mermaid flowchart each. The checklist is the payload.",
+  "workspaces": [
+    "server",
+    "web"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "npm run dev --workspace server",
+    "dev:web": "npm run dev --workspace web",
+    "build": "npm run build --workspace server && npm run build --workspace web",
+    "start": "npm run start --workspace server",
+    "test": "npm run test --workspace server",
+    "mock:particle": "node --import tsx server/test/mock-particle.ts"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

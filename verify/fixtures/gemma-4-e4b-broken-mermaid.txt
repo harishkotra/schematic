@@ -1,0 +1,35 @@
+graph TD
+    subgraph Client Interaction
+        A[Client/User] -->|1. Request Shortening (Write)| B(Load Balancer);
+        A -->|2. Click Redirection (Read)| B;
+    end
+
+    subgraph Application Layer
+        B -->|Distribute Traffic| C[App/API Gateway Servers];
+    end
+
+    subgraph Data & Cache Layer
+        C -->|Check/Lookup ShortCode| D{Distributed Cache - Redis};
+        D -- Hit: Found Mapping --> C;
+        D -- Miss/New Request --> E[Database Cluster - PostgreSQL/NoSQL];
+        E -->|Retrieve LongURL| D;
+        C -->|Write/Update Mapping| E;
+    end
+
+    subgraph Asynchronous Processing
+        C -->|Log Click Event (Async)| F[Message Queue - Kafka/SQS];
+        F -->|Process Log Data| G[Analytics Service];
+    end
+
+    %% Flow Paths %%
+    C -->|1. Generate ShortCode & Store Mapping (Write)| E;
+    E -->|Return ShortCode| C;
+    C -->|Response: Short Code| A;
+
+    %% Read Path (High Volume) %%
+    C -->|2. Lookup ShortCode| D;
+    D -- Hit: Found Mapping --> C;
+    C -->|Redirect HTTP 301/302| A;
+
+    %% Click Tracking %%
+    C -->|Track Click Event| F;

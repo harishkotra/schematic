@@ -1,0 +1,15 @@
+[
+  {
+    "attempt": 1,
+    "a": {
+      "ok": true,
+      "nodes": 12,
+      "error": null
+    },
+    "b": {
+      "ok": true,
+      "nodes": 8,
+      "error": null
+    }
+  }
+]

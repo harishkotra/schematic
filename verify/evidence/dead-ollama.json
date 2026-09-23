@@ -1,0 +1,408 @@
+{
+  "brief": "a URL shortener at 10M clicks/day",
+  "promptSent": "Design the architecture for a URL shortener at 10M clicks/day.\n\nOutput ONE Mermaid flowchart. Output only the Mermaid source in a ```mermaid fence. Label every component and every edge.\n\n(request nonce: 131eef36f8cb — ignore this line)",
+  "nonce": "131eef36f8cb",
+  "startedAt": "2026-09-23T18:11:31.528Z",
+  "totalLatencyMs": 57850,
+  "a": {
+    "slot": "A",
+    "provider": "ollama",
+    "baseUrl": "http://127.0.0.1:11434/v1",
+    "model": "llama3",
+    "ok": false,
+    "error": "Cannot reach http://127.0.0.1:11434 — is Ollama running?\nfetch failed",
+    "errorKind": "network",
+    "mermaid": null,
+    "extractionPath": "none",
+    "rawReply": "",
+    "latencyMs": 2,
+    "promptTokens": null,
+    "completionTokens": null,
+    "reasoningTokens": null,
+    "reasoningSupported": false,
+    "sha256": null,
+    "rawReplySha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "promptSha256": "1012cfd15637b8c71079ba7bbeaea0db2af1502436d90a6663cef45fa8709c39",
+    "nonce": "131eef36f8cb",
+    "promptReused": false,
+    "parseOk": false,
+    "parseError": null,
+    "counts": {
+      "nodes": 0,
+      "edges": 0,
+      "source": "unavailable",
+      "note": "no diagram extracted"
+    },
+    "byteCount": 0,
+    "nodeLabels": [],
+    "edgeLabels": [],
+    "checklist": [
+      {
+        "concept": "Cache",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Queue",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Load balancer",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Auth",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Retry",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Idempotency",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Observability / metrics",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Rate limit",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Database",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Circuit breaker",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Dead-letter",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "CDN",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "maxTokens": 1600,
+        "httpStatus": null,
+        "latencyMs": 2,
+        "contentChars": 0,
+        "reasoningCharsStripped": 0,
+        "reasoningTokens": null,
+        "finishReason": null,
+        "outcome": "network-error",
+        "error": "fetch failed"
+      }
+    ],
+    "finishReason": null,
+    "truncated": false,
+    "degenerate": false,
+    "retried": false,
+    "sequentialRetry": false,
+    "notes": []
+  },
+  "b": {
+    "slot": "B",
+    "provider": "lmstudio",
+    "baseUrl": "http://127.0.0.1:1234/v1",
+    "model": "ornith-1.0-35b",
+    "ok": false,
+    "error": "Parse error on line 20:\n...ATA_TIER[\"Data Tier\"]        DB_PRIMARY...\n-----------------------^\nExpecting 'SQE', 'DOUBLECIRCLEEND', 'PE', '-)', 'STADIUMEND', 'SUBROUTINEEND', 'PIPE', 'CYLINDEREND', 'DIAMOND_STOP', 'TAGEND', 'TRAPEND', 'INVTRAPEND', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'STR'",
+    "errorKind": "parse",
+    "mermaid": "flowchart TD\n    subgraph CLIENT_TIER[\"Client Tier\"]\n        C[\"🌐 User Browser / App\"]\n    end\n\n    subgraph GATEWAY_TIER[\"Gateway Tier\"]\n        LB[\"⚖️ Load Balancer<br/>(Round-Robin + Health Checks)\"]\n    end\n\n    subgraph APP_TIER[\"Application Tier\"]\n        API[\"🔧 URL Shortener API Servers<br/>(Stateless, Horizontal Scale)\"]\n        REDIRECT_SVC[\"🔄 Redirect Service<br/>(Fast Path, 302 Response)\"]\n        SHORTEN_SVC[\"✏️ Shorten Service<br/>(Create + Validate)\"]\n    end\n\n    subgraph CACHE_TIER[\"Cache Tier\"]\n        REDIS[\"⚡ Redis Cluster<br/>(Short URL → Long URL Map)<br/>TTL: 30 days / LRU Eviction]\n    end\n\n    subgraph DATA_TIER[\"Data Tier\"]\n        DB_PRIMARY[\"🗄️ Primary Database<br/>(PostgreSQL / MySQL)<br/>Table: short_urls (id, code, long_url,<br/>created_at, expires_at, click_count)]\n        DB_ANALYTICS[\"📊 Analytics DB<br/>(Click events store)]\n    end\n\n    subgraph ASYNC_TIER[\"Async Tier\"]\n        MQ[\"📨 Message Queue<br/>(Kafka / RabbitMQ)<br/>Topic: click_events]\n        ANALYTICS_SVC[\"📈 Click Analytics Service<br/>(Aggregate, Geo-IP, Referrer)]\n        DASHBOARD[\"🖥️ Dashboard API<br/>(Stats & Reporting)\"]\n    end\n\n    subgraph CDN_TIER[\"CDN Tier\"]\n        CDN[\"🌍 Edge Cache<br/>(Redirect response caching<br/>for hot URLs)]\n    end\n\n    C -->|\"1. GET /shorten\"| LB\n    LB -->|\"2a. Route to Shorten\"| SHORTEN_SVC\n    LB -->|\"2b. Route to Redirect\"| REDIRECT_SVC\n\n    SHORTEN_SVC -->|\"3a. Check cache\"| REDIS\n    REDIS -->|\"3b. Hit → return code\"| SHORTEN_SVC\n    SHORTEN_SVC -->|\"4a. Generate unique code<br/>Base62 / Hash\"| SHORTEN_SVC\n    SHORTEN_SVC -->|\"5a. Insert mapping\"| DB_PRIMARY\n    DB_PRIMARY -->|\"5b. Ack insert\"| SHORTEN_SVC\n    SHORTEN_SVC -->|\"6a. Write-through cache\"| REDIS\n\n    C -->|\"1'. Click short URL\"| LB\n    LB -->|\"2'. Route to Redirect\"| CDN\n    CDN -->|\"3'. Cache hit → 302\"| C\n    LB -->|\"2''. Route to Redirect\"| REDIRECT_SVC\n    REDIRECT_SVC -->|\"4'. Lookup code\"| REDIS\n    REDIS -->|\"5'. Hit → long URL\"| REDIRECT_SVC\n    REDIRECT_SVC -->|\"6'. Cache miss → query DB\"| DB_PRIMARY\n    DB_PRIMARY -->|\"7'. Return mapping\"| REDIRECT_SVC\n    REDIRECT_SVC -->|\"8'. Write-through cache\"| REDIS\n    REDIRECT_SVC -->|\"9'. Emit click event\"| MQ\n    REDIRECT_SVC -->|\"10'. 302 Found → long URL\"| C\n\n    MQ -->|\"consume events\"| ANALYTICS_SVC\n    ANALYTICS_SVC -->|\"persist\"| DB_ANALYTICS\n    ANALYTICS_SVC -->|\"aggregate stats\"| DASHBOARD",
+    "extractionPath": "mermaid-fence",
+    "rawReply": "```mermaid\nflowchart TD\n    subgraph CLIENT_TIER[\"Client Tier\"]\n        C[\"🌐 User Browser / App\"]\n    end\n\n    subgraph GATEWAY_TIER[\"Gateway Tier\"]\n        LB[\"⚖️ Load Balancer<br/>(Round-Robin + Health Checks)\"]\n    end\n\n    subgraph APP_TIER[\"Application Tier\"]\n        API[\"🔧 URL Shortener API Servers<br/>(Stateless, Horizontal Scale)\"]\n        REDIRECT_SVC[\"🔄 Redirect Service<br/>(Fast Path, 302 Response)\"]\n        SHORTEN_SVC[\"✏️ Shorten Service<br/>(Create + Validate)\"]\n    end\n\n    subgraph CACHE_TIER[\"Cache Tier\"]\n        REDIS[\"⚡ Redis Cluster<br/>(Short URL → Long URL Map)<br/>TTL: 30 days / LRU Eviction]\n    end\n\n    subgraph DATA_TIER[\"Data Tier\"]\n        DB_PRIMARY[\"🗄️ Primary Database<br/>(PostgreSQL / MySQL)<br/>Table: short_urls (id, code, long_url,<br/>created_at, expires_at, click_count)]\n        DB_ANALYTICS[\"📊 Analytics DB<br/>(Click events store)]\n    end\n\n    subgraph ASYNC_TIER[\"Async Tier\"]\n        MQ[\"📨 Message Queue<br/>(Kafka / RabbitMQ)<br/>Topic: click_events]\n        ANALYTICS_SVC[\"📈 Click Analytics Service<br/>(Aggregate, Geo-IP, Referrer)]\n        DASHBOARD[\"🖥️ Dashboard API<br/>(Stats & Reporting)\"]\n    end\n\n    subgraph CDN_TIER[\"CDN Tier\"]\n        CDN[\"🌍 Edge Cache<br/>(Redirect response caching<br/>for hot URLs)]\n    end\n\n    C -->|\"1. GET /shorten\"| LB\n    LB -->|\"2a. Route to Shorten\"| SHORTEN_SVC\n    LB -->|\"2b. Route to Redirect\"| REDIRECT_SVC\n\n    SHORTEN_SVC -->|\"3a. Check cache\"| REDIS\n    REDIS -->|\"3b. Hit → return code\"| SHORTEN_SVC\n    SHORTEN_SVC -->|\"4a. Generate unique code<br/>Base62 / Hash\"| SHORTEN_SVC\n    SHORTEN_SVC -->|\"5a. Insert mapping\"| DB_PRIMARY\n    DB_PRIMARY -->|\"5b. Ack insert\"| SHORTEN_SVC\n    SHORTEN_SVC -->|\"6a. Write-through cache\"| REDIS\n\n    C -->|\"1'. Click short URL\"| LB\n    LB -->|\"2'. Route to Redirect\"| CDN\n    CDN -->|\"3'. Cache hit → 302\"| C\n    LB -->|\"2''. Route to Redirect\"| REDIRECT_SVC\n    REDIRECT_SVC -->|\"4'. Lookup code\"| REDIS\n    REDIS -->|\"5'. Hit → long URL\"| REDIRECT_SVC\n    REDIRECT_SVC -->|\"6'. Cache miss → query DB\"| DB_PRIMARY\n    DB_PRIMARY -->|\"7'. Return mapping\"| REDIRECT_SVC\n    REDIRECT_SVC -->|\"8'. Write-through cache\"| REDIS\n    REDIRECT_SVC -->|\"9'. Emit click event\"| MQ\n    REDIRECT_SVC -->|\"10'. 302 Found → long URL\"| C\n\n    MQ -->|\"consume events\"| ANALYTICS_SVC\n    ANALYTICS_SVC -->|\"persist\"| DB_ANALYTICS\n    ANALYTICS_SVC -->|\"aggregate stats\"| DASHBOARD\n```",
+    "latencyMs": 57831,
+    "promptTokens": 92,
+    "completionTokens": 1161,
+    "reasoningTokens": 388,
+    "reasoningSupported": true,
+    "sha256": "fc322669c60cdfbf7c7060f95fa84cd8110d1c0fb0898d0737633a1fe8239998",
+    "rawReplySha256": "55b0b7b1badf907640bffabc0368a8fe3e5c5d97e2c30112fc52f3f4ad897dfc",
+    "promptSha256": "1012cfd15637b8c71079ba7bbeaea0db2af1502436d90a6663cef45fa8709c39",
+    "nonce": "131eef36f8cb",
+    "promptReused": false,
+    "parseOk": false,
+    "parseError": {
+      "message": "Parse error on line 20:\n...ATA_TIER[\"Data Tier\"]        DB_PRIMARY...\n-----------------------^\nExpecting 'SQE', 'DOUBLECIRCLEEND', 'PE', '-)', 'STADIUMEND', 'SUBROUTINEEND', 'PIPE', 'CYLINDEREND', 'DIAMOND_STOP', 'TAGEND', 'TRAPEND', 'INVTRAPEND', 'UNICODE_TEXT', 'TEXT', 'TAGSTART', got 'STR'",
+      "line": 20,
+      "lineText": "    subgraph DATA_TIER[\"Data Tier\"]"
+    },
+    "counts": {
+      "nodes": 0,
+      "edges": 0,
+      "source": "unavailable",
+      "note": "diagram did not parse"
+    },
+    "byteCount": 2446,
+    "nodeLabels": [],
+    "edgeLabels": [],
+    "checklist": [
+      {
+        "concept": "Cache",
+        "present": true,
+        "matchedLabel": "subgraph CACHE_TIER[\"Cache Tier\"]",
+        "matchedTerm": "\\bcach(?:e|es|ed|ing)\\b",
+        "matchedIn": "source",
+        "sourceLine": 16,
+        "sourceText": "subgraph CACHE_TIER[\"Cache Tier\"]"
+      },
+      {
+        "concept": "Queue",
+        "present": true,
+        "matchedLabel": "MQ[\"📨 Message Queue<br/>(Kafka / RabbitMQ)<br/>Topic: click_events]",
+        "matchedTerm": "\\bqueue\\w*",
+        "matchedIn": "source",
+        "sourceLine": 26,
+        "sourceText": "MQ[\"📨 Message Queue<br/>(Kafka / RabbitMQ)<br/>Topic: click_events]"
+      },
+      {
+        "concept": "Load balancer",
+        "present": true,
+        "matchedLabel": "LB[\"⚖️ Load Balancer<br/>(Round-Robin + Health Checks)\"]",
+        "matchedTerm": "\\bload\\s?balanc\\w*",
+        "matchedIn": "source",
+        "sourceLine": 7,
+        "sourceText": "LB[\"⚖️ Load Balancer<br/>(Round-Robin + Health Checks)\"]"
+      },
+      {
+        "concept": "Auth",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Retry",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Idempotency",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Observability / metrics",
+        "present": true,
+        "matchedLabel": "DASHBOARD[\"🖥️ Dashboard API<br/>(Stats & Reporting)\"]",
+        "matchedTerm": "\\bdashboard\\w*",
+        "matchedIn": "source",
+        "sourceLine": 28,
+        "sourceText": "DASHBOARD[\"🖥️ Dashboard API<br/>(Stats & Reporting)\"]"
+      },
+      {
+        "concept": "Rate limit",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Database",
+        "present": true,
+        "matchedLabel": "DB_PRIMARY[\"🗄️ Primary Database<br/>(PostgreSQL / MySQL)<br/>Table: short_urls (id, code, long_url,<br/>created_at, expires_at, click_count)]",
+        "matchedTerm": "\\bdatabase\\w*",
+        "matchedIn": "source",
+        "sourceLine": 21,
+        "sourceText": "DB_PRIMARY[\"🗄️ Primary Database<br/>(PostgreSQL / MySQL)<br/>Table: short_urls (id, code, long_url,<br/>created_at, expires_at, click_count)]"
+      },
+      {
+        "concept": "Circuit breaker",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "Dead-letter",
+        "present": false,
+        "matchedLabel": null,
+        "matchedTerm": null,
+        "matchedIn": null,
+        "sourceLine": null,
+        "sourceText": null
+      },
+      {
+        "concept": "CDN",
+        "present": true,
+        "matchedLabel": "subgraph CDN_TIER[\"CDN Tier\"]",
+        "matchedTerm": "\\bCDN\\b",
+        "matchedIn": "source",
+        "sourceLine": 31,
+        "sourceText": "subgraph CDN_TIER[\"CDN Tier\"]"
+      }
+    ],
+    "attempts": [
+      {
+        "attempt": 1,
+        "maxTokens": 1600,
+        "httpStatus": 200,
+        "latencyMs": 57831,
+        "contentChars": 2417,
+        "reasoningCharsStripped": 1519,
+        "reasoningTokens": 388,
+        "finishReason": "stop",
+        "outcome": "ok",
+        "error": null
+      }
+    ],
+    "finishReason": "stop",
+    "truncated": false,
+    "degenerate": false,
+    "retried": false,
+    "sequentialRetry": false,
+    "notes": []
+  },
+  "diff": {
+    "onlyInA": [],
+    "onlyInB": [],
+    "headline": "B planned for caching, a queue, a load balancer, observability, a database and a CDN; A did not."
+  },
+  "checklistSummary": [
+    {
+      "concept": "Cache",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Queue",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Load balancer",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Auth",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Retry",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Idempotency",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Observability / metrics",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Rate limit",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Database",
+      "a": false,
+      "b": true
+    },
+    {
+      "concept": "Circuit breaker",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "Dead-letter",
+      "a": false,
+      "b": false
+    },
+    {
+      "concept": "CDN",
+      "a": false,
+      "b": true
+    }
+  ],
+  "warnings": [
+    "Slot A did not produce a rendered diagram: network",
+    "Slot B did not produce a rendered diagram: parse"
+  ]
+}
